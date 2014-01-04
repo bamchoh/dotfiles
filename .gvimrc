@@ -17,6 +17,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'rking/ag.vim'
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
 filetype plugin indent on     " required!
@@ -29,10 +30,10 @@ set encoding=cp932
 set guifont=Consolas:h12:cSHIFTJIS
 "" set guifontwide=MeiryoKe_Gothic:h12:cSHIFTJIS
 set ambiwidth=double
-set encoding=utf8
 
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set background=dark
 colorscheme lucius
+

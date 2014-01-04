@@ -1,4 +1,5 @@
 VimClojure
+ag.vim
 neobundle.vim
 neocomplcache
 neosnippet

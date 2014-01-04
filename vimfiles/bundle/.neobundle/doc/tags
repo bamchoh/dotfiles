@@ -1,3 +1,6 @@
+'b:syntastic_checkers'	syntastic.txt	/*'b:syntastic_checkers'*
+'g:syntastic_<filetype>_checkers'	syntastic.txt	/*'g:syntastic_<filetype>_checkers'*
+'syntastic_<filetype>_<checker>_quiet_messages'	syntastic.txt	/*'syntastic_<filetype>_<checker>_quiet_messages'*
 'syntastic_aggregate_errors'	syntastic.txt	/*'syntastic_aggregate_errors'*
 'syntastic_always_populate_loc_list'	syntastic.txt	/*'syntastic_always_populate_loc_list'*
 'syntastic_auto_jump'	syntastic.txt	/*'syntastic_auto_jump'*
@@ -18,12 +21,20 @@
 'syntastic_ignore_files'	syntastic.txt	/*'syntastic_ignore_files'*
 'syntastic_loc_list_height'	syntastic.txt	/*'syntastic_loc_list_height'*
 'syntastic_mode_map'	syntastic.txt	/*'syntastic_mode_map'*
-'syntastic_quiet_warnings'	syntastic.txt	/*'syntastic_quiet_warnings'*
+'syntastic_quiet_messages'	syntastic.txt	/*'syntastic_quiet_messages'*
 'syntastic_stl_format'	syntastic.txt	/*'syntastic_stl_format'*
 'syntastic_style_error_symbol'	syntastic.txt	/*'syntastic_style_error_symbol'*
 'syntastic_style_warning_symbol'	syntastic.txt	/*'syntastic_style_warning_symbol'*
 'syntastic_warning_symbol'	syntastic.txt	/*'syntastic_warning_symbol'*
+:Ag	ag.txt	/*:Ag*
+:AgAdd	ag.txt	/*:AgAdd*
+:AgFile	ag.txt	/*:AgFile*
+:AgFromSearch	ag.txt	/*:AgFromSearch*
+:AgHelp	ag.txt	/*:AgHelp*
 :Errors	syntastic.txt	/*:Errors*
+:LAg	ag.txt	/*:LAg*
+:LAgAdd	ag.txt	/*:LAgAdd*
+:LAgHelp	ag.txt	/*:LAgHelp*
 :Neco	neocomplcache.txt	/*:Neco*
 :NeoBundle	neobundle.txt	/*:NeoBundle*
 :NeoBundleCheck	neobundle.txt	/*:NeoBundleCheck*
@@ -63,6 +74,7 @@
 :NeoComplCacheToggle	neocomplcache.txt	/*:NeoComplCacheToggle*
 :NeoComplCacheUnlock	neocomplcache.txt	/*:NeoComplCacheUnlock*
 :NeoComplCacheUnlockSource	neocomplcache.txt	/*:NeoComplCacheUnlockSource*
+:NeoSnippetClearMarkers	neosnippet.txt	/*:NeoSnippetClearMarkers*
 :NeoSnippetEdit	neosnippet.txt	/*:NeoSnippetEdit*
 :NeoSnippetMakeCache	neosnippet.txt	/*:NeoSnippetMakeCache*
 :NeoSnippetSource	neosnippet.txt	/*:NeoSnippetSource*
@@ -204,6 +216,10 @@ StartLocalRepl	clojure.txt	/*StartLocalRepl*
 StartRepl	clojure.txt	/*StartRepl*
 ToggleParenRainbow	clojure.txt	/*ToggleParenRainbow*
 ^	clojure.txt	/*^*
+ag	ag.txt	/*ag*
+ag-mappings	ag.txt	/*ag-mappings*
+ag-options	ag.txt	/*ag-options*
+ag.txt	ag.txt	/*ag.txt*
 aw	clojure.txt	/*aw*
 b:neocomplcache_sources_list	neocomplcache.txt	/*b:neocomplcache_sources_list*
 buffer_complete	neocomplcache.txt	/*buffer_complete*
@@ -220,6 +236,13 @@ filename_complete	neocomplcache.txt	/*filename_complete*
 filename_include	neocomplcache.txt	/*filename_include*
 ft-clj-indent	clojure.txt	/*ft-clj-indent*
 ft-clj-syntax	clojure.txt	/*ft-clj-syntax*
+g:ag_apply_lmappings	ag.txt	/*g:ag_apply_lmappings*
+g:ag_apply_qmappings	ag.txt	/*g:ag_apply_qmappings*
+g:ag_lhandler	ag.txt	/*g:ag_lhandler*
+g:ag_qhandler	ag.txt	/*g:ag_qhandler*
+g:agformat	ag.txt	/*g:agformat*
+g:aghighlight	ag.txt	/*g:aghighlight*
+g:agprg	ag.txt	/*g:agprg*
 g:neobundle#default_options	neobundle.txt	/*g:neobundle#default_options*
 g:neobundle#default_site	neobundle.txt	/*g:neobundle#default_site*
 g:neobundle#enable_name_conversion	neobundle.txt	/*g:neobundle#enable_name_conversion*
@@ -228,6 +251,7 @@ g:neobundle#install_process_timeout	neobundle.txt	/*g:neobundle#install_process_
 g:neobundle#log_filename	neobundle.txt	/*g:neobundle#log_filename*
 g:neobundle#rm_command	neobundle.txt	/*g:neobundle#rm_command*
 g:neobundle#types#git#default_protocol	neobundle.txt	/*g:neobundle#types#git#default_protocol*
+g:neobundle#types#git#enable_submodule	neobundle.txt	/*g:neobundle#types#git#enable_submodule*
 g:neobundle#types#hg#default_protocol	neobundle.txt	/*g:neobundle#types#hg#default_protocol*
 g:neobundle#types#raw#calc_hash_command	neobundle.txt	/*g:neobundle#types#raw#calc_hash_command*
 g:neobundle_default_git_protocol	neobundle.txt	/*g:neobundle_default_git_protocol*
@@ -305,6 +329,7 @@ g:neosnippet#disable_runtime_snippets	neosnippet.txt	/*g:neosnippet#disable_runt
 g:neosnippet#disable_select_mode_mappings	neosnippet.txt	/*g:neosnippet#disable_select_mode_mappings*
 g:neosnippet#enable_preview	neosnippet.txt	/*g:neosnippet#enable_preview*
 g:neosnippet#enable_snipmate_compatibility	neosnippet.txt	/*g:neosnippet#enable_snipmate_compatibility*
+g:neosnippet#scope_aliases	neosnippet.txt	/*g:neosnippet#scope_aliases*
 g:neosnippet#snippets_directory	neosnippet.txt	/*g:neosnippet#snippets_directory*
 g:slime_no_mappings	vim-slime.txt	/*g:slime_no_mappings*
 g:slime_paste_file	vim-slime.txt	/*g:slime_paste_file*
@@ -322,6 +347,8 @@ g:unite_enable_start_insert	unite.txt	/*g:unite_enable_start_insert*
 g:unite_enable_use_short_source_names	unite.txt	/*g:unite_enable_use_short_source_names*
 g:unite_force_overwrite_statusline	unite.txt	/*g:unite_force_overwrite_statusline*
 g:unite_ignore_source_files	unite.txt	/*g:unite_ignore_source_files*
+g:unite_kind_cdable_cd_command	unite.txt	/*g:unite_kind_cdable_cd_command*
+g:unite_kind_cdable_lcd_command	unite.txt	/*g:unite_kind_cdable_lcd_command*
 g:unite_kind_jump_list_after_jump_scroll	unite.txt	/*g:unite_kind_jump_list_after_jump_scroll*
 g:unite_kind_openable_cd_command	unite.txt	/*g:unite_kind_openable_cd_command*
 g:unite_kind_openable_lcd_command	unite.txt	/*g:unite_kind_openable_lcd_command*
@@ -384,6 +411,7 @@ g:unite_split_rule	unite.txt	/*g:unite_split_rule*
 g:unite_update_time	unite.txt	/*g:unite_update_time*
 g:unite_winheight	unite.txt	/*g:unite_winheight*
 g:unite_winwidth	unite.txt	/*g:unite_winwidth*
+g:vimproc#disable	vimproc.txt	/*g:vimproc#disable*
 g:vimproc#dll_path	vimproc.txt	/*g:vimproc#dll_path*
 g:vimproc#password_pattern	vimproc.txt	/*g:vimproc#password_pattern*
 g:vimproc#popen2_commands	vimproc.txt	/*g:vimproc#popen2_commands*
@@ -471,6 +499,7 @@ i_<Plug>(vimshell_enter)	vimshell.txt	/*i_<Plug>(vimshell_enter)*
 i_<Plug>(vimshell_execute_by_background)	vimshell.txt	/*i_<Plug>(vimshell_execute_by_background)*
 i_<Plug>(vimshell_exit)	vimshell.txt	/*i_<Plug>(vimshell_exit)*
 i_<Plug>(vimshell_hide)	vimshell.txt	/*i_<Plug>(vimshell_hide)*
+i_<Plug>(vimshell_history_neocomplete)	vimshell.txt	/*i_<Plug>(vimshell_history_neocomplete)*
 i_<Plug>(vimshell_history_unite)	vimshell.txt	/*i_<Plug>(vimshell_history_unite)*
 i_<Plug>(vimshell_insert_last_word)	vimshell.txt	/*i_<Plug>(vimshell_insert_last_word)*
 i_<Plug>(vimshell_int_another_delete_backward_char)	vimshell.txt	/*i_<Plug>(vimshell_int_another_delete_backward_char)*
@@ -653,10 +682,10 @@ neosnippet-interface	neosnippet.txt	/*neosnippet-interface*
 neosnippet-introduction	neosnippet.txt	/*neosnippet-introduction*
 neosnippet-key-mappings	neosnippet.txt	/*neosnippet-key-mappings*
 neosnippet-snippet-syntax	neosnippet.txt	/*neosnippet-snippet-syntax*
-neosnippet-unite-action-snippet	neosnippet.txt	/*neosnippet-unite-action-snippet*
+neosnippet-unite-action-neosnippet	neosnippet.txt	/*neosnippet-unite-action-neosnippet*
+neosnippet-unite-source-neosnippet	neosnippet.txt	/*neosnippet-unite-source-neosnippet*
 neosnippet-unite-source-neosnippet/runtime	neosnippet.txt	/*neosnippet-unite-source-neosnippet\/runtime*
 neosnippet-unite-source-neosnippet/user	neosnippet.txt	/*neosnippet-unite-source-neosnippet\/user*
-neosnippet-unite-source-snippet	neosnippet.txt	/*neosnippet-unite-source-snippet*
 neosnippet-unite-sources	neosnippet.txt	/*neosnippet-unite-sources*
 neosnippet-variables	neosnippet.txt	/*neosnippet-variables*
 neosnippet.txt	neosnippet.txt	/*neosnippet.txt*
@@ -683,6 +712,7 @@ sr	clojure.txt	/*sr*
 sw	clojure.txt	/*sw*
 syntastic	syntastic.txt	/*syntastic*
 syntastic-about	syntastic.txt	/*syntastic-about*
+syntastic-aggregating-errors	syntastic.txt	/*syntastic-aggregating-errors*
 syntastic-checker-options	syntastic.txt	/*syntastic-checker-options*
 syntastic-commands	syntastic.txt	/*syntastic-commands*
 syntastic-composite	syntastic.txt	/*syntastic-composite*
@@ -690,13 +720,17 @@ syntastic-config-makeprg	syntastic.txt	/*syntastic-config-makeprg*
 syntastic-contents	syntastic.txt	/*syntastic-contents*
 syntastic-error-signs	syntastic.txt	/*syntastic-error-signs*
 syntastic-error-window	syntastic.txt	/*syntastic-error-window*
+syntastic-filetype-checkers	syntastic.txt	/*syntastic-filetype-checkers*
+syntastic-filtering-errors	syntastic.txt	/*syntastic-filtering-errors*
 syntastic-fish	syntastic.txt	/*syntastic-fish*
 syntastic-functionality	syntastic.txt	/*syntastic-functionality*
 syntastic-global-options	syntastic.txt	/*syntastic-global-options*
+syntastic-highlighting	syntastic.txt	/*syntastic-highlighting*
 syntastic-intro	syntastic.txt	/*syntastic-intro*
 syntastic-license	syntastic.txt	/*syntastic-license*
 syntastic-notes	syntastic.txt	/*syntastic-notes*
 syntastic-pymode	syntastic.txt	/*syntastic-pymode*
+syntastic-quickstart	syntastic.txt	/*syntastic-quickstart*
 syntastic-statusline-flag	syntastic.txt	/*syntastic-statusline-flag*
 syntastic.txt	syntastic.txt	/*syntastic.txt*
 syntax_complete	neocomplcache.txt	/*syntax_complete*
@@ -781,6 +815,7 @@ unite-faq	unite.txt	/*unite-faq*
 unite-filter-attribute-description	unite.txt	/*unite-filter-attribute-description*
 unite-filter-attribute-filter	unite.txt	/*unite-filter-attribute-filter*
 unite-filter-attribute-name	unite.txt	/*unite-filter-attribute-name*
+unite-filter-attribute-pattern	unite.txt	/*unite-filter-attribute-pattern*
 unite-filter-attributes	unite.txt	/*unite-filter-attributes*
 unite-filter-converter_default	unite.txt	/*unite-filter-converter_default*
 unite-filter-converter_file_directory	unite.txt	/*unite-filter-converter_file_directory*
@@ -879,6 +914,7 @@ unite-options-select	unite.txt	/*unite-options-select*
 unite-options-short-source-names	unite.txt	/*unite-options-short-source-names*
 unite-options-silent	unite.txt	/*unite-options-silent*
 unite-options-start-insert	unite.txt	/*unite-options-start-insert*
+unite-options-sync	unite.txt	/*unite-options-sync*
 unite-options-tab	unite.txt	/*unite-options-tab*
 unite-options-toggle	unite.txt	/*unite-options-toggle*
 unite-options-truncate	unite.txt	/*unite-options-truncate*
@@ -964,6 +1000,7 @@ v_<c-c><c-c>	vim-slime.txt	/*v_<c-c><c-c>*
 v_CTRL-C_CTRL-C	vim-slime.txt	/*v_CTRL-C_CTRL-C*
 vim_complete	neocomplcache.txt	/*vim_complete*
 vimclojure.txt	clojure.txt	/*vimclojure.txt*
+vimproc	vimproc.txt	/*vimproc*
 vimproc#cmd#system()	vimproc.txt	/*vimproc#cmd#system()*
 vimproc#delete_trash()	vimproc.txt	/*vimproc#delete_trash()*
 vimproc#dll_version()	vimproc.txt	/*vimproc#dll_version()*
@@ -1046,6 +1083,7 @@ vimshell-internal-echo	vimshell.txt	/*vimshell-internal-echo*
 vimshell-internal-eval	vimshell.txt	/*vimshell-internal-eval*
 vimshell-internal-exe	vimshell.txt	/*vimshell-internal-exe*
 vimshell-internal-exit	vimshell.txt	/*vimshell-internal-exit*
+vimshell-internal-export	vimshell.txt	/*vimshell-internal-export*
 vimshell-internal-galias	vimshell.txt	/*vimshell-internal-galias*
 vimshell-internal-gcd	vimshell.txt	/*vimshell-internal-gcd*
 vimshell-internal-gendoc	vimshell.txt	/*vimshell-internal-gendoc*
