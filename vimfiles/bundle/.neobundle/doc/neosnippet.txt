@@ -39,10 +39,11 @@ FAQ			|neosnippet-faq|
 ==============================================================================
 INTRODUCTION					*neosnippet-introduction*
 
-This plugin analyzes snippet files which you can use for completion. It offers
-functionality similar to snipMate.vim or snippetsEmu.vim. Since you can choose
-snippets with the neocomplcache/neocomplete interface, you might have less
-trouble using them, because you do not have to remember each snippet name.
+This plugin offers functionality similar to snipMate.vim or snippetsEmu.vim.
+This analyzes snippet files which you can use for the completion.  Since you
+can choose snippets with the neocomplcache/neocomplete interface, you might
+have less trouble using them, because you do not have to remember each snippet
+name.
 
 ==============================================================================
 INSTALL						*neosnippet-install*
@@ -59,8 +60,10 @@ Default snippets files are available in neosnippet-snippets.
 https://github.com/Shougo/neosnippet-snippets
 
 Note: Installing the default snippets is optional. If you choose not to install
-them, you must disable finding snippets by giving 1 to 
-|g:neosnippet#disable_runtime_snippets|.
+them, you must set |g:neosnippet#disable_runtime_snippets|. >
+		let g:neosnippet#disable_runtime_snippets = {
+		\   '_' : 1,
+		\ }
 
 Extra snippets files are also available. e.g.:
 https://github.com/honza/vim-snippets

@@ -149,7 +149,6 @@ autocmd FileType ruby,eruby,ruby.rspec call SetUpRubySetting()
 "let g:neocomplcache_omni_patterns.ruby = '[-. *\t]\.\w*\|\h\w*::'
 "}}}
 "
-
 map <C-g> :Gtags
 map <C-h> :Gtags -f %<CR>
 map <C-j> :GtagsCursor<CR>
