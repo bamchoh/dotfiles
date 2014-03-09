@@ -361,6 +361,19 @@ g:vimshell_enable_transient_user_prompt
 
 		Default value is 0.
 
+					*g:vimshell_enable_start_insert*
+g:vimshell_enable_start_insert
+		If it is non-zero, vimshell will start in insert mode.
+
+		Default value is 1.
+
+					*g:vimshell_enable_stay_insert*
+g:vimshell_enable_stay_insert
+		If it is non-zero, vimshell will stay in insert mode after
+		the command executed.
+
+		Default value is 1.
+
 					*g:vimshell_execute_file_list*
 g:vimshell_execute_file_list
 		This is a dictionary value that has keys of the extensions
@@ -939,12 +952,17 @@ OPTIONS 					*vimshell-options*
 		-project
 		Move to project directory.
 
+						*vimshell-options-quit*
+		-quit
+		Quit buffer after command finished.
+		If |vimshell-options-popup| is enabled, switch to previous
+		window.
+
 ==============================================================================
 EXAMPLES						*vimshell-examples*
 >
 	let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 	"let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-	let g:vimshell_enable_smart_case = 1
 	
 	if has('win32') || has('win64')
 	  " Display user name on Windows.
