@@ -1,8 +1,4 @@
-if has('gui_running') && !has('unix')
-  scriptencoding cp932
-
-  set encoding=cp932
-  set guifont=Consolas:h12:cSHIFTJIS
-  "" set guifontwide=MeiryoKe_Gothic:h12:cSHIFTJIS
-  set ambiwidth=double
-endif
+let g:DrChipTopLvlMenu = ""   " remove 'DrChip' menu
+set guifont=MigMix\ 2M:h10:cSHIFTJIS
+set ambiwidth=double
+source ~/vimfiles/vimrc
