@@ -1,0 +1,22 @@
+-- set envs
+set {
+   PROMPT='$e[36;40;1m$p$e[37;1m$_$e[31;1m$$ $e[37;1m'
+}
+
+-- add pathes
+addpath "%HOME%\\apps\\vim"
+
+-- set aliases
+alias {
+  ll = "ls -la $*",
+  rm = "del $*",
+  mv = "move $*",
+  vix = ". apps/vix/ViX.exe",
+  -- twitter = ". http://twitter.com",
+  qiita = ". http://qiita.com",
+  setmail = 'start "https://sixprd0210.outlook.com/owa/?exsvurl=1"',
+  chrome = '"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" &',
+  niconico = ". http://nicovideo.jp/ranking"
+}
+
+nyagos.alias["."] = nyagos.alias.start
