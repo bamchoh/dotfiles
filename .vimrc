@@ -2,42 +2,40 @@ filetype off
 filetype plugin indent off     " required!
 
 if &compatible
-  set neocomplete
+  set nocompatible
 end
 
-set runtimepath+=~/vimfiles/bundle/neobundle.vim
+set runtimepath^=~/vimfiles/bundle/dein.vim
 
-call neobundle#begin(expand('~/vimfiles/bundle/'))
+call dein#begin(expand('~/vimfiles/bundle/'))
 
 " originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-" NeoBundle 'VimClojure'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-" NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neomru.vim'
-" NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-" NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'mattn/ctrlp-launcher'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 't9md/vim-foldtext'
+call dein#add('Shougo/neobundle.vim')
+call dein#add('Shougo/vimproc')
+" call dein#add('VimClojure')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
+" call dein#add('Shougo/vimshell')
+call dein#add('Shougo/neomru.vim')
+" call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+" call dein#add('jpalardy/vim-slime')
+call dein#add('scrooloose/syntastic')
+call dein#add('rking/ag.vim')
+call dein#add('vim-scripts/Align')
+call dein#add('kana/vim-operator-user')
+call dein#add('kana/vim-operator-replace')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('mattn/ctrlp-launcher')
+call dein#add('thinca/vim-quickrun')
+call dein#add('tpope/vim-fugitive')
+call dein#add('scrooloose/nerdtree')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('t9md/vim-foldtext')
 
-call neobundle#end()
-
-NeoBundleCheck
+call dein#end()
 
 " vimproc setting "{{{
 if has('mac')
