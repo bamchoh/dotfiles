@@ -1,6 +1,10 @@
 filetype off
 filetype plugin indent off     " required!
 
+if &compatible
+  set neocomplete
+end
+
 set runtimepath+=~/vimfiles/bundle/neobundle.vim
 
 call neobundle#begin(expand('~/vimfiles/bundle/'))
