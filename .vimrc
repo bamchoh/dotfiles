@@ -1,43 +1,59 @@
 filetype off
 filetype plugin indent off     " required!
 
-set runtimepath+=~/vimfiles/bundle/neobundle.vim
+if (has('mac') || has('unix'))
+  set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
+  call dein#begin(expand('~/.vim/bundle/dein.vim'))
+else
+  set runtimepath^=~/vimfiles/bundle/dein.vim/repos/github.com/Shougo/dein.vim
+  call dein#begin(expand('~/vimfiles/bundle/'))
+endif
 
-call neobundle#begin(expand('~/vimfiles/bundle/'))
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-" originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-" NeoBundle 'VimClojure'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-" NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neomru.vim'
-" NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-" NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'mattn/ctrlp-launcher'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 't9md/vim-foldtext'
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
 
-call neobundle#end()
+" Add or remove your plugins here:
+call dein#add('Shougo/neobundle.vim')
+call dein#add('Shougo/vimproc')
+" call dein#add('VimClojure')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
+" call dein#add('Shougo/vimshell')
+call dein#add('Shougo/neomru.vim')
+" call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+" call dein#add('jpalardy/vim-slime')
+call dein#add('scrooloose/syntastic')
+call dein#add('rking/ag.vim')
+call dein#add('vim-scripts/Align')
+call dein#add('kana/vim-operator-user')
+call dein#add('kana/vim-operator-replace')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('mattn/ctrlp-launcher')
+call dein#add('thinca/vim-quickrun')
+call dein#add('tpope/vim-fugitive')
+call dein#add('scrooloose/nerdtree')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('t9md/vim-foldtext')
 
-NeoBundleCheck
+" Required:
+call dein#end()
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
 " vimproc setting "{{{
 if has('mac')
-	let g:vimproc_dll_path = $VIMRUNTIME . '/autoload/vimproc_mac.so'
+	let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_mac.so'
 elseif has('win64')
 	let g:vimproc_dll_path = $HOME . '/vimfiles/bundle/vimproc/autoload/vimproc_win64.dll'
 elseif has('win32')
@@ -93,24 +109,28 @@ let g:quickrun_config = {
 			\   },
 			\ }
 
-set backupdir=$HOME/vimfiles/backup
-set directory=$HOME/vimfiles/tmp
-set undodir=$HOME/vimfiles/undo
-set undofile
-
 if (has('mac') || has('unix'))
-	source ~/vimfiles/vimrc
+  colorscheme solarized
+  set backupdir=$HOME/.vim/backup
+  set directory=$HOME/.vim/tmp
+  set undodir=$HOME/.vim/undo
+else
+  set backupdir=$HOME/vimfiles/backup
+  set directory=$HOME/vimfiles/tmp
+  set undodir=$HOME/vimfiles/undo
 endif
 
+set undofile
+
 if has('win64') ||  has('win32')
-	scriptencoding cp932
-	set encoding=cp932
-	if !has('gui_running')
+  scriptencoding cp932
+  set encoding=cp932
+  if !has('gui_running')
     " set shell=$HOME/apps/nyagos/nyagos.exe
-		" set shellcmdflag=
-		" set shellquote=\"
-		" set shellxquote=
-	endif
+    " set shellcmdflag=
+    " set shellquote=\"
+    " set shellxquote=
+  endif
 endif
 
 filetype plugin indent on     " required!
