@@ -124,8 +124,8 @@ fi
 eval `dircolors ~/dotfiles/.dir_colors`
 
 # git settings
-source dotfiles/.git-prompt.sh
-source dotfiles/.git-completion.bash
+source ~/dotfiles/.git-prompt.sh
+source ~/dotfiles/.git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 
 if [ "$color_prompt" = yes ]; then
