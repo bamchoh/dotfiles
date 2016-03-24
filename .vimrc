@@ -91,6 +91,9 @@ let g:quickrun_config = {
 if (has('mac') || has('unix'))
   colorscheme solarized
   set background=dark
+  execute 'silent !mkdir -p $HOME/.vim/backup'
+  execute 'silent !mkdir -p $HOME/.vim/tmp'
+  execute 'silent !mkdir -p $HOME/.vim/undo'
   set backupdir=$HOME/.vim/backup
   set directory=$HOME/.vim/tmp
   set undodir=$HOME/.vim/undo
