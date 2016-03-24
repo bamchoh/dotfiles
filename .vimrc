@@ -1,17 +1,17 @@
 filetype off
 filetype plugin indent off     " required!
 
-if (has('mac') || has('unix'))
-  set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
-  call dein#begin(expand('~/.vim/bundle/dein.vim'))
-else
-  set runtimepath^=~/vimfiles/bundle/dein.vim/repos/github.com/Shougo/dein.vim
-  call dein#begin(expand('~/vimfiles/bundle/'))
-endif
-
 if &compatible
   set nocompatible               " Be iMproved
 endif
+
+if (has('mac') || has('unix'))
+  set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
+else
+  set runtimepath^=vimfiles/bundle/dein.vim/repos/github.com/Shougo/dein.vim
+endif
+
+call dein#begin(expand('~/.cache/dein.vim'))
 
 " Let dein manage dein
 " Required:
