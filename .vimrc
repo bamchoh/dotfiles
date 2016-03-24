@@ -90,6 +90,7 @@ let g:quickrun_config = {
 
 if (has('mac') || has('unix'))
   colorscheme solarized
+  set background=dark
   set backupdir=$HOME/.vim/backup
   set directory=$HOME/.vim/tmp
   set undodir=$HOME/.vim/undo
