@@ -35,7 +35,7 @@ endif
 if has('mac')
   let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_mac.so'
 elseif has('win64')
-  let g:vimproc_dll_path = $HOME . '/vimfiles/bundle/vimproc/autoload/vimproc_win64.dll'
+  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/autoload/vimproc_win64.dll'
 elseif has('win32')
   let g:vimproc_dll_path = $HOME . '/vimfiles/bundle/vimproc/autoload/vimproc_win32.dll'
 endif
@@ -98,9 +98,18 @@ if (has('mac') || has('unix'))
   set directory=$HOME/.vim/tmp
   set undodir=$HOME/.vim/undo
 else
-  execute 'silent !mkdir -p $HOME/.vim/backup'
-  execute 'silent !mkdir -p $HOME/.vim/tmp'
-  execute 'silent !mkdir -p $HOME/.vim/undo'
+  if !isdirectory($HOME . '/vimfiles/backup')
+    call mkdir($HOME . '/vimfiles/backup', 'p')
+  endif
+
+  if !isdirectory($HOME . '/vimfiles/tmp')
+    call mkdir($HOME . '/vimfiles/tmp', 'p')
+  endif
+
+  if !isdirectory($HOME . '/vimfiles/undo')
+    call mkdir($HOME . '/vimfiles/undo', 'p')
+  endif
+
   set backupdir=$HOME/vimfiles/backup
   set directory=$HOME/vimfiles/tmp
   set undodir=$HOME/vimfiles/undo
