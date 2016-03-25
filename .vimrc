@@ -91,41 +91,29 @@ let g:quickrun_config = {
 if (has('mac') || has('unix'))
   colorscheme solarized
   set background=dark
-  execute 'silent !mkdir -p $HOME/.vim/backup'
-  execute 'silent !mkdir -p $HOME/.vim/tmp'
-  execute 'silent !mkdir -p $HOME/.vim/undo'
-  set backupdir=$HOME/.vim/backup
-  set directory=$HOME/.vim/tmp
-  set undodir=$HOME/.vim/undo
-else
-  if !isdirectory($HOME . '/vimfiles/backup')
-    call mkdir($HOME . '/vimfiles/backup', 'p')
-  endif
-
-  if !isdirectory($HOME . '/vimfiles/tmp')
-    call mkdir($HOME . '/vimfiles/tmp', 'p')
-  endif
-
-  if !isdirectory($HOME . '/vimfiles/undo')
-    call mkdir($HOME . '/vimfiles/undo', 'p')
-  endif
-
-  set backupdir=$HOME/vimfiles/backup
-  set directory=$HOME/vimfiles/tmp
-  set undodir=$HOME/vimfiles/undo
 endif
+
+if !isdirectory($HOME . '/vimfiles/backup')
+  call mkdir($HOME . '/vimfiles/backup', 'p')
+endif
+
+if !isdirectory($HOME . '/vimfiles/tmp')
+  call mkdir($HOME . '/vimfiles/tmp', 'p')
+endif
+
+if !isdirectory($HOME . '/vimfiles/undo')
+  call mkdir($HOME . '/vimfiles/undo', 'p')
+endif
+
+set backupdir=$HOME/vimfiles/backup
+set directory=$HOME/vimfiles/tmp
+set undodir=$HOME/vimfiles/undo
 
 set undofile
 
 if has('win64') ||  has('win32')
   scriptencoding cp932
   set encoding=cp932
-  if !has('gui_running')
-    " set shell=$HOME/apps/nyagos/nyagos.exe
-    " set shellcmdflag=
-    " set shellquote=\"
-    " set shellxquote=
-  endif
 endif
 
 filetype plugin indent on     " required!
