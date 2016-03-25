@@ -98,6 +98,9 @@ if (has('mac') || has('unix'))
   set directory=$HOME/.vim/tmp
   set undodir=$HOME/.vim/undo
 else
+  execute 'silent !mkdir -p $HOME/.vim/backup'
+  execute 'silent !mkdir -p $HOME/.vim/tmp'
+  execute 'silent !mkdir -p $HOME/.vim/undo'
   set backupdir=$HOME/vimfiles/backup
   set directory=$HOME/vimfiles/tmp
   set undodir=$HOME/vimfiles/undo
