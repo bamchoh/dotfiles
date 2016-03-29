@@ -1,2 +1,5 @@
 vimfiles/bundle/*
+vimfiles/backup/*
+vimfiles/undo/*
+vimfiles/tmp/*
 !vimfiles/bundle/neobundle.vim
