@@ -35,9 +35,9 @@ endif
 if has('mac')
   let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_mac.so'
 elseif has('win64')
-  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/autoload/vimproc_win64.dll'
+  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win64.dll'
 elseif has('win32')
-  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/autoload/vimproc_win32.dll'
+  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win32.dll'
 endif
 " }}}
 
@@ -78,6 +78,7 @@ let g:Align_xstrlen = 3       " for japanese string
 set lines=50
 set columns=80
 winpos 0 0
+set visualbell
 
 map R <Plug>(operator-replace)
 nnoremap <C-e> :<C-u>CtrlPLauncher<CR>
@@ -151,6 +152,15 @@ if (has('mac') || has('unix'))
   set background=dark
 endif
 
+if has('win64') ||  has('win32')
+	if !has('gui_running')
+		colorscheme default
+		set background=dark
+	endif
+	scriptencoding cp932
+	set encoding=cp932
+endif
+
 if !isdirectory($HOME . '/vimfiles/backup')
   call mkdir($HOME . '/vimfiles/backup', 'p')
 endif
@@ -168,26 +178,6 @@ set directory=$HOME/vimfiles/tmp
 set undodir=$HOME/vimfiles/undo
 
 set undofile
-
-if has('win64') ||  has('win32')
-  scriptencoding cp932
-  set encoding=cp932
-endif
-
-" Unite Source Settings {{{
-let s:unite_source = {
-			\ 'name': 'keycode',
-			\ }
-
-function! s:unite_source.gather_candidates(args, context)
-	return map(['a', 'b', 'c'], '{
-				\ "word" : v:val,
-				\ "source__keycode_name" : v:val,
-				\ }')
-endfunction
-call unite#define_source(s:unite_source)
-unlet s:unite_source
-" }}}
 
 filetype plugin indent on     " required!
 syntax on
