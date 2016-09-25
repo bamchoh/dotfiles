@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
 repo = 'Shougo/dein.vim'
 
 [[plugins]]

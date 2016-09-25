@@ -67,6 +67,12 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " " }}}
 
+" neosnippet {{{
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" }}}
+
 set tabstop=2
 set shiftwidth=2
 set nu
@@ -75,13 +81,10 @@ set noequalalways
 set list
 set listchars=tab:^\ ,trail:-
 let g:Align_xstrlen = 3       " for japanese string
-set lines=50
-set columns=80
-winpos 0 0
+set lines=115
+set columns=150
+winpos 1400 0
 set visualbell
-
-map R <Plug>(operator-replace)
-nnoremap <C-e> :<C-u>CtrlPLauncher<CR>
 
 " NeoBundleConfiguration {{{
 
@@ -92,7 +95,7 @@ let g:neobundle_default_git_protocol='https'
 " vimfiler settings {{{
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_edit_action="vsplit"
+" let g:vimfiler_edit_action="vsplit"
 let g:vimfiler_directory_display_top=1
 let g:vimfiler_safe_mode_by_default=0
 " }}}
@@ -147,13 +150,54 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 
 " }}}
 
+" CtrlP {{{
+let g:ctrlp_max_files=100000
+
+let g:ctrlp_max_depth=10
+
+let g:ctrlp_clear_cache_on_exit=0
+
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+
+" }}}
+
+set laststatus=2
+set cmdheight=2
+
 if (has('mac') || has('unix'))
-  colorscheme solarized
-  set background=dark
+	if &term =~ "xterm"
+		let &t_Co=256
+		let &t_ti = "\<Esc>7\<Esc>[r\<Esc>[?47h"
+		let &t_te = "\<Esc>[?47l\<Esc>8"
+
+		if has("terminfo")
+			let &t_Sf = "\<Esc>[3%p1%dm"
+			let &t_Sb = "\<Esc>[4%p1%dm"
+		else
+			let &t_Sf = "\<Esc>[3%dm"
+			let &t_Sb = "\<Esc>[4%dm"
+		endif
+	endif
+	colorscheme solarized
+	set background=dark
 endif
 
 if has('win64') ||  has('win32')
 	if !has('gui_running')
+		if !empty($CONEMUBUILD)
+			set encoding=UTF-8
+			set fileencoding=UTF-8
+			set termencoding=utf8
+			set term=xterm
+			set t_Co=256
+			let &t_AB="\e[48;5;%dm"
+			let &t_AF="\e[38;5;%dm"
+		else
+			set background=light
+			set t_Co=256
+			colorscheme default
+			let g:lightline = { 'colorscheme': 'solarized' }
+		endif
 		colorscheme default
 		set background=dark
 	endif
@@ -162,15 +206,15 @@ if has('win64') ||  has('win32')
 endif
 
 if !isdirectory($HOME . '/vimfiles/backup')
-  call mkdir($HOME . '/vimfiles/backup', 'p')
+	call mkdir($HOME . '/vimfiles/backup', 'p')
 endif
 
 if !isdirectory($HOME . '/vimfiles/tmp')
-  call mkdir($HOME . '/vimfiles/tmp', 'p')
+	call mkdir($HOME . '/vimfiles/tmp', 'p')
 endif
 
 if !isdirectory($HOME . '/vimfiles/undo')
-  call mkdir($HOME . '/vimfiles/undo', 'p')
+	call mkdir($HOME . '/vimfiles/undo', 'p')
 endif
 
 set backupdir=$HOME/vimfiles/backup
