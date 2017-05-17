@@ -5,7 +5,6 @@ repo = 'cocopon/vaffle.vim'
 repo = 'vim-jp/vital.vim'
 
 [[plugins]]
-if = 0
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
