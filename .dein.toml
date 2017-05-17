@@ -1,6 +1,3 @@
-# [[plugins]]
-# repo = 'justinmk/vim-dirvish'
-
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 
@@ -12,20 +9,11 @@ if = 0
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/neobundle.vim'
-
-[[plugins]]
 repo = 'Shougo/vimproc'
 build = 'make'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -41,12 +29,6 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
-
-[[plugins]]
-repo = 'rking/ag.vim'
-
-[[plugins]]
-repo = 'vim-scripts/Align'
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -79,5 +61,3 @@ on_ft = 'go'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'mattn/googletranslate-vim'
