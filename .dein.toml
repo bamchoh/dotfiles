@@ -1,3 +1,16 @@
+# [[plugins]]
+# repo = 'justinmk/vim-dirvish'
+
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
+
+[[plugins]]
+if = 0
+repo = 'itchyny/lightline.vim'
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -51,14 +64,20 @@ repo = 'mattn/ctrlp-launcher'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 't9md/vim-foldtext'
 
+[[plugins]]
+repo = 'nixprime/cpsm'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'mattn/googletranslate-vim'

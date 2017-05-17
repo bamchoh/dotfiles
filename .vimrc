@@ -1,11 +1,25 @@
 filetype off
 filetype plugin indent off     " required!
 
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+set tabstop=2
+set shiftwidth=2
+set foldmethod=marker
+set noequalalways
+set list
+set listchars=tab:^\ ,trail:-
+set lines=60
+set columns=150
+set visualbell
+set langmenu=none
+set nonumber
+set norelativenumber
+set grepprg=jvgrep
+set backupdir=$HOME/vimfiles/backup
+set directory=$HOME/vimfiles/tmp
+set undodir=$HOME/vimfiles/undo
+set undofile
 
-" dein.vim {{{
+" dein.vim 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -24,24 +38,23 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-
 " If you want to install not installed plugins on startup.
 silent if dein#check_install()
   silent call dein#install()
 endif
-" }}}
+" 
 
-" vimproc setting "{{{
+" vimproc setting 
 if has('mac')
-  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_mac.so'
+  let g:vimproc#dll_path = $VIM . '/plugins/vimproc/lib/vimproc_mac.so'
 elseif has('win64')
-  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win64.dll'
+  let g:vimproc#dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win64.dll'
 elseif has('win32')
-  let g:vimproc_dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win32.dll'
+  let g:vimproc#dll_path = $VIM . '/plugins/vimproc/lib/vimproc_win32.dll'
 endif
-" }}}
+" 
 
-" neocomplete setting "{{{
+" neocomplete setting 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -63,41 +76,28 @@ endfunction
 " <TAG>: completion
 inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" " }}}
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" " 
 
-set tabstop=2
-set shiftwidth=2
-set nu
-set foldmethod=marker
-set noequalalways
-set list
-set listchars=tab:^\ ,trail:-
+" neosnippet 
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" 
+
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
 let g:Align_xstrlen = 3       " for japanese string
-set lines=50
-set columns=80
-winpos 0 0
-set visualbell
-
-map R <Plug>(operator-replace)
-nnoremap <C-e> :<C-u>CtrlPLauncher<CR>
-
-" NeoBundleConfiguration {{{
+" NeoBundleConfiguration 
 
 let g:neobundle_default_git_protocol='https'
 
-" }}}
+" 
 
-" vimfiler settings {{{
-let g:vimfiler_enable_auto_cd = 1
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_edit_action="vsplit"
-let g:vimfiler_directory_display_top=1
-let g:vimfiler_safe_mode_by_default=0
-" }}}
-
-" QuickRun Configuration {{{
+" QuickRun Configuration 
 
 if has('win32') || has('win64')
 	function! s:hook_quickrun_windows()
@@ -145,17 +145,63 @@ let g:quickrun_config = {
 noremap <F10> :QuickRun<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-" }}}
+" 
+
+nnoremap <C-s> :winpos 1500 0<CR>:set columns=200<CR>:set lines=80<CR>
+" nnoremap <C-s> :winpos 1500 400<CR>:set columns=157<CR>:set lines=33<CR>
+
+" CtrlP 
+let g:ctrlp_max_files=1000
+
+let g:ctrlp_max_depth=10
+
+let g:ctrlp_clear_cache_on_exit=0
+
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+
+" 
+
+nnoremap <C-e> :<C-u>CtrlPLauncher<CR>
 
 if (has('mac') || has('unix'))
   colorscheme solarized
   set background=dark
 endif
 
+augroup QuickFixCmd
+	autocmd!
+	autocmd QuickFixCmdPost *grep* cwindow
+augroup END
+
+augroup fileTypeIndent
+	au!
+	au BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
+
 if has('win64') ||  has('win32')
 	if !has('gui_running')
-		colorscheme default
-		set background=dark
+		if !empty($CONEMUBUILD)
+			set encoding=UTF-8
+			set fileencoding=UTF-8
+			" echom "Running in conemu"
+			set termencoding=utf8
+			set term=xterm
+			set t_Co=256
+			let &t_AB="\e[48;5;%dm"
+			let &t_AF="\e[38;5;%dm"
+			" termcap codes for cursor shape changes on entry and exit to
+			" /from insert mode
+			" doesn't work
+			"let &t_ti="\e[1 q"
+			"let &t_SI="\e[5 q"
+			"let &t_EI="\e[1 q"
+			"let &t_te="\e[0 q"
+		else
+			set background=light
+			set t_Co=256
+			colorscheme default
+			let g:lightline = { 'colorscheme': 'solarized' }
+		endif
 	endif
 	scriptencoding cp932
 	set encoding=cp932
@@ -173,11 +219,57 @@ if !isdirectory($HOME . '/vimfiles/undo')
   call mkdir($HOME . '/vimfiles/undo', 'p')
 endif
 
-set backupdir=$HOME/vimfiles/backup
-set directory=$HOME/vimfiles/tmp
-set undodir=$HOME/vimfiles/undo
+command! -nargs=? -complete=dir -bang CD call s:ChangeCurrentDir('<args>', '<bang>')
+function! s:ChangeCurrentDir(directory, bang)
+	if a:directory == ''
+		lcd %:p:h
+	else
+		execute 'lcd' . a:directory
+	endif
 
-set undofile
+	if a:bang == ''
+		pwd
+	endif
+endfunction
+
+" Change current directory.
+nnoremap <silent> <Space>cd :<C-u>CD<CR>
+
+" 個別のタブの表示設定をします
+function! GuiTabLabel()
+  " タブで表示する文字列の初期化をします
+  let l:label = ''
+
+  " タブに含まれるバッファ(ウィンドウ)についての情報をとっておきます。
+  let l:bufnrlist = tabpagebuflist(v:lnum)
+
+  " 表示文字列にバッファ名を追加します
+  " パスを全部表示させると長いのでファイル名だけを使います 詳しくは help fnamemodify()
+  let l:bufname = fnamemodify(bufname(l:bufnrlist[tabpagewinnr(v:lnum) - 1]), ':t')
+  " バッファ名がなければ No title としておきます。ここではマルチバイト文字を使わないほうが無難です
+  let l:label .= l:bufname == '' ? 'No title' : l:bufname
+
+  " タブ内にウィンドウが複数あるときにはその数を追加します(デフォルトで一応あるので)
+  let l:wincount = tabpagewinnr(v:lnum, '$')
+  if l:wincount > 1
+    let l:label .= '[' . l:wincount . ']'
+  endif
+
+  " このタブページに変更のあるバッファがるときには '[+]' を追加します(デフォルトで一応あるので)
+  for bufnr in l:bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let l:label .= '[+]'
+      break
+    endif
+  endfor
+
+  " 表示文字列を返します
+  return l:label
+endfunction
+
+" guitablabel に上の関数を設定します
+" その表示の前に %N というところでタブ番号を表示させています
+set guitablabel=%N:\ %{GuiTabLabel()}
 
 filetype plugin indent on     " required!
 syntax on
