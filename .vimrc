@@ -22,6 +22,7 @@ Plug 'nixprime/cpsm'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-fugitive'
 Plug 'koron/dicwin-vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 " }}}
@@ -129,8 +130,10 @@ let g:ctrlp_user_command = 'files -A -a -s -d %s'
 nnoremap <C-e> :<C-u>CtrlPLauncher<CR>
 
 if (has('mac') || has('unix'))
-  colorscheme solarized
-  set background=dark
+	set t_Co=256
+	set background=light
+	let g:solarized_termcolors=256
+	colorscheme solarized
 endif
 
 augroup QuickFixCmd
